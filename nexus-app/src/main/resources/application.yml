@@ -19,6 +19,11 @@ spring:
     open-in-view: false
   flyway:
     enabled: true
+  ai:
+    mcp:
+      server:
+        name: nexus
+        version: 1.0.0
 
 nexus:
   kek: ${NEXUS_KEK:}

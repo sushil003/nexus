@@ -1,0 +1,3 @@
+rootProject.name = 'nexus'
+
+include 'nexus-core', 'nexus-app'

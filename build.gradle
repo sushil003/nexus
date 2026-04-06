@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}" apply false
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group = 'dev.nexus'
+    version = '0.1.0-SNAPSHOT'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(25)
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.compilerArgs << '-parameters'
+    }
+
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+}

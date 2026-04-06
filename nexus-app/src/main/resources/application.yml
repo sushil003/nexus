@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: nexus
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nexus
+    username: nexus
+    password: nexus
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      idle-timeout: 300000
+      connection-timeout: 10000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+nexus:
+  kek: ${NEXUS_KEK:}
+  admin-password: ${NEXUS_ADMIN_PASSWORD:changeme}
+  permission:
+    mode: cautious
+  plugins:
+    excalidraw:
+      directory: ${NEXUS_PLUGINS_EXCALIDRAW_DIRECTORY:./excalidraw-files}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

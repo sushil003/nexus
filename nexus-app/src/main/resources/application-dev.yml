@@ -1,0 +1,10 @@
+spring:
+  main:
+    lazy-initialization: true
+  docker:
+    compose:
+      file: compose-dev.yml
+
+logging:
+  level:
+    dev.nexus: DEBUG
